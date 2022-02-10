@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_10_133431) do
+ActiveRecord::Schema.define(version: 2022_02_10_133707) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "date"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 2022_02_10_133431) do
     t.string "zip_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "join_table_doctor_specialties", force: :cascade do |t|
+    t.integer "doctor_id"
+    t.integer "skill_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["doctor_id"], name: "index_join_table_doctor_specialties_on_doctor_id"
+    t.index ["skill_id"], name: "index_join_table_doctor_specialties_on_skill_id"
   end
 
   create_table "patients", force: :cascade do |t|
