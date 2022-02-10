@@ -14,28 +14,47 @@ City.destroy_all
 Appointment.destroy_all
 
 10.times do
-  city = City.create!(name: Faker::Address.city)
+  city = City.create!(
+    name: Faker::Address.city
+    )
 end
 
-100.times do
-  doctor = Doctor.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, zip_code: Faker::Address.zip_code, city_id: City.all.sample.id)
+10.times do
+  doctor = Doctor.create!(
+    first_name: Faker::Name.first_name, 
+    last_name: Faker::Name.last_name, 
+    zip_code: Faker::Address.zip_code, 
+    city_id: City.all.sample.id
+    )
 end
 
-Specialty.create!(specialty: "Zygomaticologue")
-Specialty.create!(specialty: "Casimirologue")
-Specialty.create!(specialty: "Simpsonologue")
-Specialty.create!(specialty: "Rigologue")
-Specialty.create!(specialty: "Rirififilouloulogue")
-Specialty.create!(specialty: "Gandalfologue")
+Specialty.create!(specialty: "1")
+Specialty.create!(specialty: "2")
+Specialty.create!(specialty: "3")
+Specialty.create!(specialty: "4")
+Specialty.create!(specialty: "5")
+Specialty.create!(specialty: "6")
 
-100.times do
-  join = JoinTableDoctorSpecialty.create!(doctor: Doctor.all.select(:id).sample, specialty: Specialty.all.select(:id).sample)
+10.times do
+  join = JoinTableDoctorSpecialty.create!(
+    doctor: Doctor.all.select(:id).sample, 
+    specialty: Specialty.all.select(:id).sample
+    )
 end
 
-100.times do
-  patient = Patient.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, city_id: City.all.sample.id)
+10.times do
+  patient = Patient.create!(
+    first_name: Faker::Name.first_name, 
+    last_name: Faker::Name.last_name, 
+    city_id: City.all.sample.id
+    )
 end
 
-100.times do
-  appointment = Appointment.create!(doctor: Doctor.all.sample, patient: Patient.all.sample, date: Faker::Date.forward(days: 100), city_id: City.all.sample.id)
+10.times do
+  appointment = Appointment.create!(
+    doctor: Doctor.all.sample, 
+    patient: Patient.all.sample, 
+    date: Faker::Date.forward(days: 100), 
+    city_id: City.all.sample.id
+    )
 end
