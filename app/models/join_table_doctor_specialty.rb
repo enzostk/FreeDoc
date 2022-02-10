@@ -1,4 +1,4 @@
 class JoinTableDoctorSpecialty < ApplicationRecord
   belongs_to :doctor
-  belongs_to :skill
+  belongs_to :specialty
 end
